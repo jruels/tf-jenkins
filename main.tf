@@ -3,9 +3,6 @@ module "jenkins" {
   source  = "./modules/tf-gcp-jenkins"
   
 # required variables
-  jenkins_metadata = {
-   ssh-keys = "bitnami:${file("~/.ssh/tf-key.pub")}" 
-  }
   jenkins_initial_password         = var.jenkins_initial_password
 #  jenkins_initial_username         = var.jenkins_initial_username
   project_id		           = var.project_id
