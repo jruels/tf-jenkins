@@ -23,6 +23,7 @@ locals {
     bitnami-base-password  = local.jenkins_password
     status-uptime-deadline = 420
     startup-script         = data.template_file.jenkins_startup_script.rendered
+    ssh-keys               = "bitnami:${file("~/.ssh/tf-key.pub")}"
   }
 
   jenkins_password = coalesce(
