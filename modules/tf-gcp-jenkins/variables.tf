@@ -20,7 +20,6 @@
 
 variable "project_id" {
   description = "The project ID to deploy to"
-  default     = "jscloud-shell"
 }
 
 variable "region" {
@@ -104,7 +103,6 @@ variable "jenkins_service_account_display_name" {
 
 variable "jenkins_workers_project_id" {
   description = "The GCP project to deploy Jenkins workers within"
-  default     = "jscloud-shell"
 }
 
 variable "jenkins_workers_instance_cap" {

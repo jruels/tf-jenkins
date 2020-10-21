@@ -1,5 +1,10 @@
 # Jenkins variables
 
+variable "region" {
+  description  = "Region to deploy Jenkins into"
+  default      = "us-west2"
+}
+
 variable "jenkins_initial_password" {
   description = "Jenkins user password" 
   default     = "password"
