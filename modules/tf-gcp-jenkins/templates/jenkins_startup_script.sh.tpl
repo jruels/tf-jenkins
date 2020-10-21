@@ -27,13 +27,21 @@ install_system_dependencies() {
     sleep 0.5
   done
   echo "Apt finished; continuing..."
-  apt-get install -y -qq python-pip
+  sudo apt-get update 
+  sudo apt-get install -y -qq python3-pip unzip
 }
 
 install_python_dependencies() {
   echo "Installing python dependencies"
   pip install python-jenkins
   pip install requests
+}
+
+install_terraform() {
+  echo "Installing Terraform"
+  wget https://releases.hashicorp.com/terraform/0.13.4/terraform_0.13.4_linux_amd64.zip
+  unzip terraform_0.13.4_linux_amd64.zip
+  sudo mv terraform /usr/local/bin/
 }
 
 generate_ssh_key() {
@@ -300,21 +308,22 @@ EOF
 
 echo "Configuring Jenkins"
 
-enable_jenkins_cli
-generate_ssh_key
-install_ssh_key
+#enable_jenkins_cli
+#generate_ssh_key
+#install_ssh_key
 install_system_dependencies
 install_python_dependencies
-skip_jenkins_install_wizard
+install_terraform
+#skip_jenkins_install_wizard
 
-download_jenkins_cli
-install_jenkins_plugins
+#download_jenkins_cli
+#install_jenkins_plugins
 
-install_gce_credentials
-install_gce_plugin_configuration
-install_jenkins_jobs
+#install_gce_credentials
+#install_gce_plugin_configuration
+#install_jenkins_jobs
 
-uninstall_ssh_key
-disable_jenkins_cli
+#uninstall_ssh_key
+#disable_jenkins_cli
 
 echo "software-status configuration: success"
