@@ -35,13 +35,11 @@ output "jenkins_instance_public_ip" {
 }
 
 output "jenkins_instance_initial_username" {
-  sensitive   = true
   description = "The initial username assigned to the Jenkins instance's `user` username"
   value       = local.jenkins_username
 }
 
 output "jenkins_instance_initial_password" {
-  sensitive   = true
   description = "The initial password assigned to the Jenkins instance's `user` username"
   value       = local.jenkins_password
 }

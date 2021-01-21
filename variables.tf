@@ -7,7 +7,7 @@ variable "region" {
 
 variable "jenkins_initial_password" {
   description = "Jenkins user password" 
-  default     = "password"
+  default     = "bitnami"
 }
 
 variable "project_id" {
